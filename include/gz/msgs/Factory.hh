@@ -14,8 +14,8 @@
  * limitations under the License.
  *
 */
-#ifndef IGNITION_MSGS_FACTORY_HH_
-#define IGNITION_MSGS_FACTORY_HH_
+#ifndef GZ_MSGS_FACTORY_HH_
+#define GZ_MSGS_FACTORY_HH_
 
 #ifdef _MSC_VER
 #pragma warning(push)
@@ -31,8 +31,8 @@
 #include <memory>
 #include <vector>
 
-#include "ignition/msgs/config.hh"
-#include "ignition/msgs/Export.hh"
+#include "gz/msgs/config.hh"
+#include "gz/msgs/Export.hh"
 
 namespace ignition
 {
@@ -45,7 +45,7 @@ namespace ignition
     /// \brief Prototype for message factory generation
     typedef std::unique_ptr<google::protobuf::Message> (*FactoryFn) ();
 
-    /// \class Factory Factory.hh ignition/msgs.hh
+    /// \class Factory Factory.hh gz/msgs.hh
     /// \brief A factory that generates protobuf message based on a string type.
     /// This class  will also try to load all Protobuf descriptors specified
     /// in the IGN_DESCRIPTOR_PATH environment variable on program start.

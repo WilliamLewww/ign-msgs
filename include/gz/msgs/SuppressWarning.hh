@@ -15,10 +15,10 @@
  *
  */
 
-#ifndef IGNITION_MSGS_SUPPRESSWARNING_HH_
-#define IGNITION_MSGS_SUPPRESSWARNING_HH_
+#ifndef GZ_MSGS_SUPPRESSWARNING_HH_
+#define GZ_MSGS_SUPPRESSWARNING_HH_
 
-#include <ignition/utils/SuppressWarning.hh>
+#include <gz/utils/SuppressWarning.hh>
 
 #pragma message("ign-msgs SuppressWarning is deprecated, use ign-utils")
 
