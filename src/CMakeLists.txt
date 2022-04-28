@@ -150,24 +150,32 @@ message(STATUS "Installing Ruby messages to ${CMAKE_INSTALL_PREFIX}/${IGN_LIB_IN
 install(FILES ${gen_ruby_scripts} DESTINATION ${CMAKE_INSTALL_PREFIX}/${IGN_LIB_INSTALL_DIR}/ruby/ignition/${IGN_DESIGNATION}${PROJECT_VERSION_MAJOR})
 
 ign_install_includes(
+  "${IGN_INCLUDE_INSTALL_DIR_POSTFIX}/gz/${IGN_DESIGNATION}"
+  ${gen_headers})
+
+# TODO(CH3): Remove on tock
+ign_install_includes(
   "${IGN_INCLUDE_INSTALL_DIR_POSTFIX}/ignition/${IGN_DESIGNATION}"
   ${gen_headers})
 
-
 ##################################################
-# Generate ignition/msgs/MessageTypes.hh
+# Generate gz/msgs/MessageTypes.hh
 foreach (hdr ${gen_headers})
   string(REPLACE "${PROJECT_BINARY_DIR}/include/" "" hdr ${hdr})
   string(CONCAT ign_msgs_headers ${ign_msgs_headers} "#include <${hdr}>\n")
 endforeach()
 
 configure_file (${CMAKE_CURRENT_SOURCE_DIR}/MessageTypes.hh.in
-  ${PROJECT_BINARY_DIR}/include/ignition/msgs/MessageTypes.hh)
+  ${PROJECT_BINARY_DIR}/include/gz/msgs/MessageTypes.hh)
 
 ign_install_includes(
-  "${IGN_INCLUDE_INSTALL_DIR_POSTFIX}/ignition/${IGN_DESIGNATION}"
-  "${PROJECT_BINARY_DIR}/include/ignition/${IGN_DESIGNATION}/MessageTypes.hh")
+  "${IGN_INCLUDE_INSTALL_DIR_POSTFIX}/gz/${IGN_DESIGNATION}"
+  "${PROJECT_BINARY_DIR}/include/gz/${IGN_DESIGNATION}/MessageTypes.hh")
 
+# TODO(CH3): Remove on tock
+ign_install_includes(
+  "${IGN_INCLUDE_INSTALL_DIR_POSTFIX}/ignition/${IGN_DESIGNATION}"
+  "${PROJECT_BINARY_DIR}/include/gz/${IGN_DESIGNATION}/MessageTypes.hh")
 
 ##################################################
 # Build the main library
